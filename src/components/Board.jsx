@@ -13,58 +13,95 @@ import ReactDom from "react-dom";
 import Square from "./Square";
 
 function Board() {
+  const [board, setBoard] = useState([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
   const [currentPlayer, setCurrentPlayer] = useState("X");
 
-  function handleCurrentPlayer() {
-    console.log(currentPlayer);
+  function handleBoard(id, player) {
+    console.log(id + " " + player);
+    setBoard((prev) => {
+      prev[id] = player;
+      return prev;
+    });
+    console.log(board);
+  }
 
+  function handleCurrentPlayer() {
     setCurrentPlayer((prev) => {
       return prev === "X" ? "O" : "X";
     });
   }
 
+  //TODO fix later with complex states
   return (
     <div>
       <div className="board-row">
         <Square
+          id="0"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
         />
         <Square
+          id="1"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
         />
         <Square
+          id="2"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-        />
-      </div>
-      <div className="board-row">
-        <Square
-          player={currentPlayer}
-          handleCurrentPlayer={handleCurrentPlayer}
-        />
-        <Square
-          player={currentPlayer}
-          handleCurrentPlayer={handleCurrentPlayer}
-        />
-        <Square
-          player={currentPlayer}
-          handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
         />
       </div>
       <div className="board-row">
         <Square
+          id="3"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
         />
         <Square
+          id="4"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
         />
         <Square
+          id="5"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
+        />
+      </div>
+      <div className="board-row">
+        <Square
+          id="6"
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
+        />
+        <Square
+          id="7"
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
+        />
+        <Square
+          id="8"
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+          handleBoard={handleBoard}
         />
       </div>
     </div>
