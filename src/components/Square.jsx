@@ -7,9 +7,7 @@ function Square(props) {
 
   function handleClickStatus() {
     props.handleCurrentPlayer();
-    setClickStatus((prev) => {
-      return !prev;
-    });
+    setClickStatus(true);
   }
 
   return (

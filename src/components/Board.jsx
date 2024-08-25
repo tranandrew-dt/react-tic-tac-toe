@@ -18,13 +18,8 @@ function Board() {
   function handleCurrentPlayer() {
     console.log(currentPlayer);
 
-    //could probably ternary
     setCurrentPlayer((prev) => {
-      if (currentPlayer === "X") {
-        return "O";
-      } else if (currentPlayer === "O") {
-        return "X";
-      }
+      return prev === "X" ? "O" : "X";
     });
   }
 
