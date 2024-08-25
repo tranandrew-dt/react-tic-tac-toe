@@ -1,30 +1,22 @@
 import React, { useState } from "react";
 
-//If state of square (from board) is occupied, don't allow overwrite
+//If state of square (from board) is occupied, don't allow overwrite, and don't switch to the other player
 //each square needs to keep track of its state, whether it's empty or has X or O
 
 function Square(props) {
-  const [clickStatus, setClickStatus] = useState(false);
+  const [clickedStatus, setClickedStatus] = useState(false);
 
-  function handleClickStatus() {
-    props.handleCurrentPlayer();
-    setClickStatus(true);
-  }
-
-  function handlePlayer() {
-    console.log("Props: " + props.player);
-    const thisPlayer = props.player;
-    console.log("This: " + thisPlayer);
+  function handleClickedStatus() {
+    if (!clickedStatus) {
+      props.handleBoard(props.id, props.player);
+      props.handleCurrentPlayer();
+      setClickedStatus(true);
+    }
   }
 
   return (
-    <button
-      className="square"
-      onClick={() => {
-        props.handleBoard(props.id, props.player);
-      }}
-    >
-      {clickStatus && "X"}
+    <button className="square" onClick={handleClickedStatus}>
+      {clickedStatus && props.board[props.id]}
     </button>
   );
 }
