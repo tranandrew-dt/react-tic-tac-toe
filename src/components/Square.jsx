@@ -8,7 +8,7 @@ function Square(props) {
 
   function handleClickedStatus() {
     if (!clickedStatus) {
-      props.handleBoard(props.id, props.player);
+      props.updateBoard(props.id, props.player);
       props.handleCurrentPlayer();
       setClickedStatus(true);
     }

@@ -26,15 +26,12 @@ function Board() {
   ]);
   const [currentPlayer, setCurrentPlayer] = useState("X");
 
-  function handleBoard(id, player) {
-    console.log(id + " " + player);
+  function updateBoard(id, player) {
     setBoard((prev) => {
-      console.log("Prev before: " + prev);
-      prev[id] = player;
-      console.log("Prev after: " + prev);
-      return prev;
+      const newBoardState = [...prev];
+      newBoardState[id] = player;
+      return newBoardState;
     });
-    // console.log(board);
   }
 
   function handleCurrentPlayer() {
@@ -51,21 +48,21 @@ function Board() {
           id="0"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
         <Square
           id="1"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
         <Square
           id="2"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
       </div>
@@ -74,21 +71,21 @@ function Board() {
           id="3"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
         <Square
           id="4"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
         <Square
           id="5"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
       </div>
@@ -97,21 +94,21 @@ function Board() {
           id="6"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
         <Square
           id="7"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
         <Square
           id="8"
           player={currentPlayer}
           handleCurrentPlayer={handleCurrentPlayer}
-          handleBoard={handleBoard}
+          updateBoard={updateBoard}
           board={board}
         />
       </div>
