@@ -6,6 +6,7 @@ function Square(props) {
   const [clickStatus, setClickStatus] = useState(false);
 
   function handleClickStatus() {
+    props.handleCurrentPlayer();
     setClickStatus((prev) => {
       return !prev;
     });
@@ -13,7 +14,7 @@ function Square(props) {
 
   return (
     <button className="square" onClick={handleClickStatus}>
-      {clickStatus && props.num}
+      {clickStatus && props.player}
     </button>
   );
 }

@@ -7,3 +7,73 @@
 // I mean i guess it's just all hori, verti, and the two diags (3+3+2)
 // If i know who is next, can't i show an onHover of their icon on empty squares?
 //...shit also look fugly atm
+
+import React, { useState } from "react";
+import ReactDom from "react-dom";
+import Square from "./Square";
+
+function Board() {
+  const [currentPlayer, setCurrentPlayer] = useState("X");
+
+  function handleCurrentPlayer() {
+    console.log(currentPlayer);
+
+    //could probably ternary
+    setCurrentPlayer((prev) => {
+      if (currentPlayer === "X") {
+        return "O";
+      } else if (currentPlayer === "O") {
+        return "X";
+      }
+    });
+  }
+
+  return (
+    <div>
+      <div className="board-row">
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+      </div>
+      <div className="board-row">
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+      </div>
+      <div className="board-row">
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+        <Square
+          player={currentPlayer}
+          handleCurrentPlayer={handleCurrentPlayer}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default Board;
