@@ -25,11 +25,16 @@ function Board() {
     null,
   ]);
   const [currentPlayer, setCurrentPlayer] = useState("X");
+  const [winner, setWinner] = useState();
 
   function updateBoard(id, player) {
     setBoard((prev) => {
       const newBoardState = [...prev];
       newBoardState[id] = player;
+      const winnerDeclared = calculateWinner(newBoardState);
+      if (winnerDeclared != null) {
+        handleWinner(player);
+      }
       return newBoardState;
     });
   }
@@ -38,6 +43,10 @@ function Board() {
     setCurrentPlayer((prev) => {
       return prev === "X" ? "O" : "X";
     });
+  }
+
+  function handleWinner(player) {
+    setWinner(player);
   }
 
   function calculateWinner(board) {
@@ -63,7 +72,7 @@ function Board() {
   //TODO fix later with complex states
   return (
     <div>
-      <h1>{currentPlayer}</h1>
+      <h1>{winner != null ? winner + " wins!" : currentPlayer + "'s turn."}</h1>
       <div className="board-row">
         <Square
           id="0"
@@ -72,6 +81,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
         <Square
           id="1"
@@ -80,6 +90,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
         <Square
           id="2"
@@ -88,6 +99,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
       </div>
       <div className="board-row">
@@ -98,6 +110,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
         <Square
           id="4"
@@ -106,6 +119,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
         <Square
           id="5"
@@ -114,6 +128,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
       </div>
       <div className="board-row">
@@ -124,6 +139,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
         <Square
           id="7"
@@ -132,6 +148,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
         <Square
           id="8"
@@ -140,6 +157,7 @@ function Board() {
           updateBoard={updateBoard}
           board={board}
           calculateWinner={calculateWinner}
+          winner={winner}
         />
       </div>
     </div>
