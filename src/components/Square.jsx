@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-//If state of square (from board) is occupied, don't allow overwrite, and don't switch to the other player
-//each square needs to keep track of its state, whether it's empty or has X or O
+/*
+ * If state of square (from board) is occupied, don't allow overwrite, and don't switch to the other player
+ * each square needs to keep track of its state, whether it's empty or has X or O */
 
 function Square(props) {
   const [clickedStatus, setClickedStatus] = useState(false);
