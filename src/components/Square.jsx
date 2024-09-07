@@ -7,6 +7,10 @@ function Square(props) {
   const [clickedStatus, setClickedStatus] = useState(false);
 
   function handleClickedStatus() {
+    const winnerDeclared = props.calculateWinner(props.board);
+    if (winnerDeclared != null) {
+      return; // Disable the Board
+    }
     if (!clickedStatus) {
       props.updateBoard(props.id, props.player);
       props.handleCurrentPlayer();
